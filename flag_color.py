@@ -5,27 +5,54 @@
 
 import sys
 from random import randrange
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+from PyQt4 import QtGui, QtCore
 
-import kamilsshit
+class FlagColor(QtGui.QWidget):
 
-
-class FlagColor:
-	def __init__(self, parent=QtGui.QColor):
-		super(FlagColor, self).__init__(parent)
-
-		landen = self.landen.keys()
+	def __init__(self):
+		super(FlagColor, self).__init__()
+		self.initUI()
+	
+	def initUI(self):
 		
-		self.fromComboBox = QComboBox()
-		self.fromComboBox.addItems(landen)
+		self.col = QtGui.QColor(0, 0, 0)
 
+		qbtn = QtGui.QPushButton('Random Color', self)
+		qbtn.clicked.connect(self.buttonClicked)
+		qbtn.resize(qbtn.sizeHint())
+		qbtn.move(50, 20)
+		
+		self.square = QtGui.QFrame(self)
+		self.square.setGeometry(5, 55, 200, 50)
+		self.square.setStyleSheet("QWidget { background-color: %s }" %  
+			self.col.name())       
+        
+		self.setGeometry(300, 300, 210, 110)
+		self.setWindowTitle('FlagColor')    
+		self.show()
+	
+	def buttonClicked(self):
+		
+		rcolor = randrange (1,4) 
+		
+		if rcolor
+		
+		#In case it is 1/2/3, we update the red/green/blue part of the color.
+		if rcolor == 1:
+			self.col.setRed(255)                
+		elif rcolor == 2:
+			self.col.setGreen(255)             
+		else:
+			self.col.setBlue(255) 
+         
+        #This style sheet changes the background color.   
+		self.square.setStyleSheet("QFrame { background-color: %s }" %
+			self.col.name())
 
-
-def main(argv):
-	land = Country(argv[1])
-	print(land.__str__())
-
+def main():
+	app = QtGui.QApplication(sys.argv)
+	ex = FlagColor()
+	sys.exit(app.exec_())
 
 if __name__ == '__main__':
-	main(sys.argv)
+	main()
