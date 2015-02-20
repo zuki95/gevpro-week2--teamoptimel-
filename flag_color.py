@@ -35,15 +35,13 @@ class FlagColor(QtGui.QWidget):
 		
 		rcolor = randrange (1,4) 
 		
-		if rcolor
-		
 		#In case it is 1/2/3, we update the red/green/blue part of the color.
 		if rcolor == 1:
-			self.col.setRed(255)                
+			self.col = QtGui.QColor(255, 0, 0)#self.col.setRed(255)                
 		elif rcolor == 2:
-			self.col.setGreen(255)             
+			self.col = QtGui.QColor(0, 255, 0)#self.col.setGreen(255)             
 		else:
-			self.col.setBlue(255) 
+			self.col = QtGui.QColor(0, 0, 255)#self.col.setBlue(255) 
          
         #This style sheet changes the background color.   
 		self.square.setStyleSheet("QFrame { background-color: %s }" %
