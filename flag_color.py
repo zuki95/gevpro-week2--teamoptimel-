@@ -33,15 +33,16 @@ class FlagColor(QtGui.QWidget):
 	
 	def buttonClicked(self):
 		
-		rcolor = randrange (1,4) 
+		rcolor = randrange (1,4)
+		rc = randrange (1,256)
 		
 		#In case it is 1/2/3, we update the red/green/blue part of the color.
 		if rcolor == 1:
-			self.col = QtGui.QColor(255, 0, 0)#self.col.setRed(255)                
+			self.col.setRed(rc) #self.col = QtGui.QColor(255, 0, 0)               
 		elif rcolor == 2:
-			self.col = QtGui.QColor(0, 255, 0)#self.col.setGreen(255)             
+			self.col.setGreen(rc)#self.col = QtGui.QColor(0, 255, 0)
 		else:
-			self.col = QtGui.QColor(0, 0, 255)#self.col.setBlue(255) 
+			self.col.setBlue(rc) #self.col = QtGui.QColor(0, 0, 255)
          
         #This style sheet changes the background color.   
 		self.square.setStyleSheet("QFrame { background-color: %s }" %
