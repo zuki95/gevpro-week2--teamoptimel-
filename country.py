@@ -3,21 +3,28 @@
 #[teamoptimel]
 
 import sys
+import flag_color
 
 class Country:
 	
 	def __init__(self, country):
 		self.country = country
+		self.flag = flag_color.FlagColor()
 	
 	def __str__(self):
-		greet =  'Hello from' + ' ' + self.country +'.'
-		return greet
+		return self.country
+		#greet =  'Hello from' + ' ' + self.country +'.'
+		#return greet
+		
+	def __repr__(self):
+		return self.__str__()
 
 
-def main(argv):
-	land = Country(argv[1])
-	print(land.__str__())
+def getCountry():
 
-
-if __name__ == '__main__':
-	main(sys.argv)
+	countries = []
+	with open('countries_list.txt', 'r') as infile:
+		for lines in infile:
+			lines = lines.rstrip('\n')
+			countries.append(Country(lines))
+	return countries
