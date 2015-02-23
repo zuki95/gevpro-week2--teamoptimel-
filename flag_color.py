@@ -12,6 +12,7 @@ class FlagColor(QtGui.QWidget):
 	def __init__(self):
 		super(FlagColor, self).__init__()
 		self.initUI()
+		self.setColor()
 	
 	def initUI(self):
 		
@@ -19,16 +20,14 @@ class FlagColor(QtGui.QWidget):
    
 	
 	def setColor(self):
-		
-		rcolor = randrange (1,4)
+		'''Set random RGB value'''
 		rc = randrange (1,256)
-		
 		self.col.setRed(rc)              
 		self.col.setGreen(rc)
 		self.col.setBlue(rc) 
+		
+		return self.col.name
          
-        #This style sheet changes the background color.   
-		#self.square.setStyleSheet("QFrame { background-color: %s }" %
-			#self.col.name())
+
 
 

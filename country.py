@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#country.py
 #Kamil Zukowski en Leon Graumans
 #[teamoptimel]
 
@@ -6,7 +7,7 @@ import sys
 import flag_color
 
 class Country:
-	
+	'''Assign flag color to a country'''
 	def __init__(self, country):
 		self.country = country
 		self.flag = flag_color.FlagColor()
@@ -21,7 +22,7 @@ class Country:
 
 
 def getCountry():
-
+	'''Get data from countries_list file, append in new list'''
 	countries = []
 	with open('countries_list.txt', 'r') as infile:
 		for lines in infile:
